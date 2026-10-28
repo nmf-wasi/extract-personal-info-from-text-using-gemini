@@ -77,10 +77,10 @@ The tests never call Gemini. The route gets its extractor through a FastAPI depe
 │   │   └── person.py       # PersonalInfo response schema & age validation
 │   ├── src/
 │   │   └── main.py         # FastAPI app instantiation, /health, router registration
+│   ├── test/
+│   │   ├── conftest.py     # Pytest fixtures and configurations
+│   │   └── test_person.py  # Pytest suite with mock/fake extractor tests
 │   └── llm.py              # Gemini client wrapper (the only file that talks to Gemini)
-├── test/
-│   ├── conftest.py         # Pytest fixtures and configurations
-│   └── test_person.py      # Pytest suite with mock/fake extractor tests
 ├── .env.example            # Environment variable template
 ├── .gitignore
 ├── pytest.ini              # Pytest configuration settings

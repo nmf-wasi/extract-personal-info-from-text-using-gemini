@@ -11,10 +11,12 @@ client = genai.Client()
 
 config = types.GenerateContentConfig(
     system_instruction=(
-        "Extract person's details into the schema. Never invent facts that are not provided.",
-        "Calculate the age from date of birth if not provided directly.",
-        "Leave not provided informations as null or empty",
-    )
+        "Extract person's details into the schema. Never invent facts that are not provided."
+        "Calculate the age from date of birth if not provided directly."
+        "Leave not provided informations as null or empty"
+    ),
+    response_mime_type="application/json",
+    response_schema=PersonalInfo,
 )
 
 

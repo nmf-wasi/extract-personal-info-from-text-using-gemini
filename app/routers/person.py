@@ -30,3 +30,5 @@ def extract(request: ExtractRequest, extractor=Depends(get_extractor)):
             status_code=status.HTTP_422_UNPROCESSABLE_CONTENT,
             detail="Text is not about personal information!",
         )
+    print(response)
+    return response

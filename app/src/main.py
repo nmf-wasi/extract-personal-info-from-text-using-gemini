@@ -1,6 +1,6 @@
 import os
 from fastapi import FastAPI, HTTPException
-from app.router import person
+from app.routers import person
 
 app = FastAPI()
 

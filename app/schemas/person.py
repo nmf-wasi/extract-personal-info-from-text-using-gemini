@@ -13,6 +13,6 @@ class PersonalInfo(BaseModel):
     @field_validator("age")
     @classmethod
     def validate_age(cls, value: int | None) -> int | None:
-        if value is not None and value < 0:
+        if (value is not None and value < 0) or (value is not None and value) > 130:
             raise ValueError("Age can't be less than 0!")
         return value

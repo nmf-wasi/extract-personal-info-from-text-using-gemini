@@ -57,7 +57,7 @@ Interactive docs are at `http://127.0.0.1:8000/docs`.
 pytest
 ```
 
-The tests never call Gemini. The route gets its extractor through a FastAPI dependency (`get_extractor`), and the tests override it with a fake that returns a posting or raises an error. That lets them check the validation, the `is_personal_info` check and the error-to-status-code mapping in about a second, with no API key and no quota.
+The tests never call Gemini. The route gets its extractor through a FastAPI dependency (`get_extractor`), and the tests override it with a fake that returns a PersonalInfo or raises an error. That lets them check the validation, the `is_personal_info` check and the error-to-status-code mapping in about a second, with no API key and no quota.
 
 ## Design
 
@@ -94,3 +94,4 @@ The tests never call Gemini. The route gets its extractor through a FastAPI depe
 - The tests use a fake extractor, so the logic inside `llm.py` (turning Gemini errors and unparseable output into the two exceptions) is not covered by automated tests
 - The free tier has request limits, which show up as 503 responses
 - No authentication, rate limiting or database
+- Ages that depend on dates or phrases like ‘last year’ aren’t reliably calculated by the model.
